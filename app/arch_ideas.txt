@@ -1,0 +1,72 @@
+├── app/
+│   ├── main.py           # Punto de entrada para FastAPI
+│   ├── models.py         # Modelos de base de datos (SQLAlchemy)
+│   ├── schemas.py        # Esquemas Pydantic para validación
+│   ├── crud.py           # Operaciones con base de datos
+│   ├── database.py       # Configuración de la base de datos
+│   ├── tests/
+│   │   ├── test_main.py  # Pruebas unitarias y de integración
+│   └── alembic/          # (Opcional) Migraciones si decides usarlas
+└── requirements.txt      # Dependencias del proyecto
+
+
+
+
+
+
+
+my_project/
+│
+├── app/
+│   ├── __init__.py          # Inicialización de la aplicación FastAPI
+│   ├── main.py              # Definición de los endpoints y lógica principal
+│   ├── models.py            # Definición de los modelos Pydantic y las tablas SQLAlchemy
+│   ├── database.py          # Conexión a la base de datos y creación de tablas
+│   └── tests/               # Directorio para las pruebas
+│       ├── test_main.py     # Pruebas de los endpoints
+│
+├── create_db.py             # Script para crear la base de datos
+├── requirements.txt         # Dependencias del proyecto
+├── alembic/                 # Opcional, para migraciones de base de datos con Alembic
+└── README.md                # Documentación del proyecto
+
+
+
+
+
+my_project/
+│
+├── app/
+│   ├── __init__.py          # Inicialización de la aplicación Flask
+│   ├── routes.py            # Rutas y endpoints de tu API
+│   ├── models.py            # Definición de tus modelos de base de datos (opcional con SQLAlchemy)
+│   └── database.py          # Conexión y creación de base de datos
+│
+├── tests/
+│   ├── __init__.py          # Inicialización del módulo de pruebas
+│   └── test_routes.py       # Pruebas para tus rutas/endpoints
+│
+├── create_db.py             # Script para crear la base de datos e insertar datos iniciales
+├── app.py                   # Punto de entrada para ejecutar la aplicación Flask
+├── config.py                # Configuración del proyecto (opcional)
+└── requirements.txt         # Dependencias del proyecto
+
+
+
+├── app/
+│   ├── api
+│   │   ├── <api definition>
+│   │   └── <api definition>
+│   ├── factory.py
+│   ├── <logic classes>
+├── app.py
+├── Makefile
+├── requirements.txt
+└── tests
+    ├── api
+    │   ├── <api test>
+    │   └── <api test>
+    ├── context.py
+    └── test_<logic classes>.py
+
+    

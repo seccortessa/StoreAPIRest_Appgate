@@ -1,0 +1,1 @@
+#  This file will be only executed one time and creates the tables an relationships 
