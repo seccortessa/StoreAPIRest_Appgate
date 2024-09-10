@@ -15,7 +15,7 @@ my_project/
 │   └── test_routes.py       # Pruebas para tus rutas/endpoints
 │
 ├── create_db.py             # Script para crear la base de datos e insertar datos iniciales
-├── app.py                   # Punto de entrada para ejecutar la aplicación Flask
+├── app.py                   # Punto de entrada para ejecutar la aplicación
 ├── config.py                # Configuración del proyecto (opcional)
 ├── requirements.txt         # Dependencias del proyecto
 └── readme.md                # archivo leeme
@@ -37,3 +37,10 @@ SERVER
         The database resides here. This layer is responsible for the management and pesistence of data, keeping it into the database and managin the queries
         - Receives queries or changes from service layer and return results or changes confirmation
         - The SQLAlchemy models interact directly with the database, performing SQL queries
+
+
+gastricumeel es para la acidez y problema estomacal
+traumeel es un antiinflamatorio
+ENGYSTOL Estimula y fortalece el sistema inmune
+Stomorgyl es para Tratamiento de infecciones bucales y faringe
+prednizoo es antiinflamatorio  

@@ -1,56 +1,58 @@
 #  This file will be only executed one time and creates the tables and relationships 
 import sqlite3
-from datetime import datetime
+# from datetime import datetime
+from config import DATABASE_NAME
+from app.data.initial_data import get_prices_table
 
-prices_table = [
-                    (1, datetime(2020, 6, 14), datetime(2020, 12, 31, 23, 59, 59), 1, 35455, 0, 32.5, 'USD'),
-                    (1, datetime(2020, 6, 14), datetime(2020, 6, 14, 18, 30, 00), 2, 35455, 1, 25.45, 'USD'),
-                    (1, datetime(2020, 6, 14), datetime(2020, 6, 15, 11, 00, 00), 3, 35455, 1, 30.5, 'USD'),
-                    (1, datetime(2020, 6, 14), datetime(2020, 12, 31, 23, 59, 59), 4, 35455, 1, 38.95, 'USD')
-                ]
 
-# Connection to the database
-conn = sqlite3.connect("webstore.db")
+# this function take the data and creates the database with that data
+def create_database():
 
-# cursor for db creation
-cursor = conn.cursor()
+     # Connection to the database
+     conn = sqlite3.connect(DATABASE_NAME)
 
-# create tables
-cursor.execute("""CREATE TABLE IF NOT EXISTS products (
-                    id INTEGER PRIMARY KEY,
-                    NAME TEXT NOT NULL
-                    );
-               """)
+     # cursor for db creation
+     cursor = conn.cursor()
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS brands (
-                    id INTEGER PRIMARY KEY,
-                    NAME TEXT NOT NULL
-                    );
-               """)
+     # create tables
+     cursor.execute("""CREATE TABLE IF NOT EXISTS products (
+                         id INTEGER PRIMARY KEY,
+                         NAME TEXT NOT NULL
+                         );
+                    """)
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS prices (
-                    brand_id INTEGER,
-                    start_date DATETIME,
-                    end_date DATETIME,
-                    price_list INTEGER,
-                    product_id INTEGER,
-                    priority INTEGER,
-                    price DECIMAL,
-                    curr VARCHAR(3),
-                    FOREIGN KEY (brand_id) REFERENCES brands(id),
-                    FOREIGN KEY (product_id) REFERENCES products(id)
-                    );
-               """)
+     cursor.execute("""CREATE TABLE IF NOT EXISTS brands (
+                         id INTEGER PRIMARY KEY,
+                         NAME TEXT NOT NULL
+                         );
+                    """)
 
-# Insert values into database
+     cursor.execute("""CREATE TABLE IF NOT EXISTS prices (
+                         brand_id INTEGER,
+                         start_date DATETIME,
+                         end_date DATETIME,
+                         price_list INTEGER,
+                         product_id INTEGER,
+                         priority INTEGER,
+                         price DECIMAL,
+                         curr VARCHAR(3),
+                         FOREIGN KEY (brand_id) REFERENCES brands(id),
+                         FOREIGN KEY (product_id) REFERENCES products(id)
+                         );
+                    """)
 
-cursor.execute("INSERT INTO products VALUES (35455, 'product1')")
+     # Insert values into database
 
-cursor.execute("INSERT INTO brands VALUES (1, 'STORE_x')")
+     cursor.execute("INSERT INTO products VALUES (35455, 'product1')")
 
-cursor.executemany("INSERT INTO prices VALUES (?,?,?,?,?,?,?,?)", prices_table)
+     cursor.execute("INSERT INTO brands VALUES (1, 'STORE_x')")
 
-print("Database created successfully")
+     cursor.executemany("INSERT INTO prices VALUES (?,?,?,?,?,?,?,?)", get_prices_table())
 
-conn.commit()
-conn.close()
+     print("Database created successfully")
+
+     conn.commit()
+     conn.close()
+     
+if __name__ == "__main__":
+     create_database()
