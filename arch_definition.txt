@@ -1,0 +1,39 @@
+Defined architecture:
+
+The architecture of this proyect is client-server and layer-oriented.  The project will implement a REST endpoint. The FastAPI application acts as a server to which the client will request the information. 
+
+my_project/
+│
+├── app/
+│   ├── __init__.py          # Inicialización de la aplicación Flask
+│   ├── routes.py            # Rutas y endpoints de API
+│   ├── models.py            # Definición de tus modelos de base de datos (opcional con SQLAlchemy)
+│   └── database.py          # Conexión y creación de base de datos
+│
+├── tests/
+│   ├── __init__.py          # Inicialización del módulo de pruebas
+│   └── test_routes.py       # Pruebas para tus rutas/endpoints
+│
+├── create_db.py             # Script para crear la base de datos e insertar datos iniciales
+├── app.py                   # Punto de entrada para ejecutar la aplicación Flask
+├── config.py                # Configuración del proyecto (opcional)
+├── requirements.txt         # Dependencias del proyecto
+└── readme.md                # archivo leeme
+
+
+Layers:
+CLIENT
+    ----- Client layer
+        This is the layer that sends all the HTTP requests to the FastAPI server, deals with all stuff related to HTTP
+        - send HTTP requests to API server through the routes defined in <file(s)>
+        - Receives the HTTPS responses from the server, in JSON format 
+SERVER
+    ----- Service layer
+        This layer contains all the logic that responds to the client requests. It manages the business logic, the entring data validation and the communication with the database
+        - Receives the HTTP responses from client layer and passes them to the backend functions to be proccessed
+        - Performs validations via Pydantic models to ensure the data meet the defined rules
+        - Interact with the database through SQLAlchemy (read, write, modify or delete)
+    ----- data access layer
+        The database resides here. This layer is responsible for the management and pesistence of data, keeping it into the database and managin the queries
+        - Receives queries or changes from service layer and return results or changes confirmation
+        - The SQLAlchemy models interact directly with the database, performing SQL queries
