@@ -1,4 +1,4 @@
-#  This file will be only executed one time and creates the tables an relationships 
+#  This file will be only executed one time and creates the tables and relationships 
 import sqlite3
 from datetime import datetime
 
@@ -36,7 +36,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS prices (
                     product_id INTEGER,
                     priority INTEGER,
                     price DECIMAL,
-                    curr VARCHAR(3)
+                    curr VARCHAR(3),
+                    FOREIGN KEY (brand_id) REFERENCES brands(id),
+                    FOREIGN KEY (product_id) REFERENCES products(id)
                     );
                """)
 
