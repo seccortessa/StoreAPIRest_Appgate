@@ -1,8 +1,7 @@
 #  This file will be only executed one time and creates the tables and relationships 
 import sqlite3
 # from datetime import datetime
-from config import DATABASE_NAME
-from app.data.initial_data import get_prices_table
+from data import DATABASE_NAME, get_prices_table
 
 
 def create_tables(cursor):

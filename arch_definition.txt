@@ -7,9 +7,12 @@ my_project/
 ├── app/
 │   ├── __init__.py          # 
 │   ├── main.py              # Main endpoint 
-│   ├── routes.py            # Rutas y endpoints de API
-│   ├── models.py            # Definición de los modelos de base de datos SQLAlchemy
 │   ├── database.py          # Database structuration and configuration
+│   ├── dependencies.py      # common dependencies
+│   ├── models.py            # Definición de los modelos de base de datos SQLAlchemy
+│   ├── schemas.py           # Definición de los modelos de base de datos SQLAlchemy
+│   ├── crud.py              # Database structuration and configuration
+│   ├── routes.py            # specific routes
     ├── data/
         └── data.py          # data fot initialize the database 
 │
