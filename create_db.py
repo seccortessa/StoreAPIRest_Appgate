@@ -9,13 +9,13 @@ def create_tables(cursor):
      
      cursor.execute("""CREATE TABLE IF NOT EXISTS products (
                          id INTEGER PRIMARY KEY,
-                         NAME TEXT NOT NULL
+                         name TEXT NOT NULL
                          );
                     """)
 
      cursor.execute("""CREATE TABLE IF NOT EXISTS brands (
                          id INTEGER PRIMARY KEY,
-                         NAME TEXT NOT NULL
+                         name TEXT NOT NULL
                          );
                     """)
 
