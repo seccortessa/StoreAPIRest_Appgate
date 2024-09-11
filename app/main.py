@@ -12,7 +12,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 @app.get("/products/")
-def read_products(db: Session = Depends(get_db)):
+async def read_products(db: Session = Depends(get_db)):
     products = db.query(models.Product).all()
     return products
 
@@ -45,3 +45,4 @@ async def get_price(application_date: datetime, product_id: int, brand_id: int, 
         }
     else:
         return {"error": "No price found for the specified parameters"}
+    

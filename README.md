@@ -25,3 +25,5 @@ package, recreate your virtual environment.
 pip install fastapi
 pip install "uvicorn[standard]"
 pip install sqlalchemy
+pip install pytest
+pip install httpx

@@ -5,22 +5,23 @@ The architecture of this proyect is client-server and layer-oriented.  The proje
 my_project/
 │
 ├── app/
-│   ├── __init__.py          # not yet
+│   ├── __init__.py          # 
+│   ├── main.py              # Main endpoint 
 │   ├── routes.py            # Rutas y endpoints de API
 │   ├── models.py            # Definición de los modelos de base de datos SQLAlchemy
-│   ├── database.py         # Conexión y creación de base de datos
+│   ├── database.py          # Database structuration and configuration
     ├── data/
-        └── data.py          # Datos de inicialización de la base de datos 
+        └── data.py          # data fot initialize the database 
 │
 ├── tests/
-│   ├── __init__.py          # Inicialización del módulo de pruebas
-│   └── test_routes.py       # Pruebas para tus rutas/endpoints
+│   ├── __init__.py          
+│   └── test_routes.py       # tests for the routes/endpoint
 │
-├── create_db.py             # Script para crear la base de datos e insertar datos iniciales
-├── app.py                   # Punto de entrada para ejecutar la aplicación
+├── create_db.py             # scropt for creat the database and insert the initial data
+├── app.py                   # entry point to execute the application
 ├── config.py                # Configuración del proyecto (opcional)
-├── requirements.txt         # Dependencias del proyecto
-└── readme.md                # archivo leeme
+├── requirements.txt         # depencencies
+└── readme.md                
 
 
 Layers:
