@@ -26,16 +26,13 @@ Please make :
     git clone https://github.com/seccortessa/StoreAPIRest_Appgate.git
     cd StoreAPIRest_Appgate
 
-### Installation method 1 (Locally)
+### Installation method 1 (Locally - for linux)
 
 1. Create and activate a virtual environment
 
 ```
 python3 -m venv venv
 source env/bin/activate  # On Linux/MacOS
-# or
-python3 -m venv .venv
-.venv\Scripts\activate    # On Windows
 ```
 2. Install dependencies
 ```
@@ -54,11 +51,11 @@ This will start the server at http://127.0.0.1:8000.
 
 
 
-### Installation method 2 (Using Docker)
+### Installation method 2 (Using Docker - suitable for Windows and Linux)
 
 1. With Docker installed, build the container
 ```
-docker build -t storeapirest 
+docker build -t storeapirest .
 ```
 This will set up all dependencies
 2. run the app
@@ -72,7 +69,7 @@ The server will be located at http://localhost:8000
 Tests are available, use the following command
 
 ```
-pytest  # if running locally
+pytest  # if running locally (linux)
 # or
 docker run -e PYTHONPATH=./ fastapirest pytest # if contenerized 
 ```
