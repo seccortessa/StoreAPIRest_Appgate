@@ -55,7 +55,7 @@ This will start the server at http://127.0.0.1:8000.
 1. Create the database
 ```create_db.py``` must be executed one single time.
 ```
-python create_db.py
+python3 create_db.py
 ```
 2. With Docker installed, build the container
 ```
