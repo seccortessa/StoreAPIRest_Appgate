@@ -72,7 +72,7 @@ The server will be located at http://localhost:8000
 Tests are available, use the following command
 
 ```
-pytest  # if running locally (linux)
+PYTHONPATH=./ pytest  # if running locally (linux)
 # or
 docker run -e PYTHONPATH=./ fastapirest pytest # if contenerized 
 ```
