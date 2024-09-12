@@ -6,7 +6,7 @@ from datetime           import datetime
 
 product_router = APIRouter()
 
-@product_router.get("/price/")
+@product_router.get("/price/", response_model=schemas.PriceBase)
 
 async def read_price(application_date: datetime, product_id: int, brand_id: int, db: Session = Depends(get_db)):
     price = crud.get_price(db, application_date, product_id, brand_id)

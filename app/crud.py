@@ -15,19 +15,20 @@ def get_price(db: Session, application_date: datetime, product_id: int, brand_id
             models.Price.brand_id == brand_id            
         )
     ).order_by(models.Price.priority.desc()).first()
-    if prices:
+    return prices
+    # if prices:
     
-        return {
-            "product_id": prices.product_id,
-            "brand_id": prices.brand_id,
-            "price_list": prices.price_list,
-            "start_date": prices.start_date,
-            "end_date": prices.end_date,
-            "price_type": prices.price,
-            "currency": prices.curr
-        }
-    else:
-        return {"error": "No price found for the specified parameters"}
+    #     return {
+    #         "product_id": prices.product_id,
+    #         "brand_id": prices.brand_id,
+    #         "price_list": prices.price_list,
+    #         "start_date": prices.start_date,
+    #         "end_date": prices.end_date,
+    #         "price_type": prices.price,
+    #         "currency": prices.curr
+    #     }
+    # else:
+    #     return {"error": "No price found for the specified parameters"}
     
     
     
