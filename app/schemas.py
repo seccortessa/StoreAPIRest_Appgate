@@ -8,5 +8,5 @@ class PriceBase(BaseModel):
     start_date: datetime
     end_date: datetime
     price: float
-    class Config:
+    class ConfigDict:
         orm_model = True
