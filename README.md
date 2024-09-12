@@ -52,13 +52,16 @@ This will start the server at http://127.0.0.1:8000.
 
 
 ### Installation method 2 (Using Docker - suitable for Windows and Linux)
+1. Create the database
+```create_db.py``` must be executed one single time.
 
-1. With Docker installed, build the container
+2. With Docker installed, build the container
 ```
 docker build -t storeapirest .
 ```
 This will set up all dependencies
-2. run the app
+
+3. run the app
 ```
 docker run -p 8000:8000 storeapirest
 ```
