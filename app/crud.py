@@ -6,7 +6,7 @@ from datetime       import datetime
 
 
 
-async def get_price(db: Session, application_date: datetime, product_id: int, brand_id: int):
+def get_price(db: Session, application_date: datetime, product_id: int, brand_id: int):
     prices = db.query(models.Price).filter(
         and_(
             models.Price.start_date <= application_date,
