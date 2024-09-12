@@ -1,9 +1,7 @@
-# In this file, we are going to create and configure the database conection.
-
-from sqlalchemy import create_engine
+from sqlalchemy                 import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
-from data import DATABASE_NAME
+from sqlalchemy.orm             import sessionmaker
+from data                       import DATABASE_NAME
 
 
 # url for the connection to the database

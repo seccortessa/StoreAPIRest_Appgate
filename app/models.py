@@ -1,7 +1,5 @@
-# this file is the abstraction definiction for the tables of the database
-
-from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey
-from app.database import Base
+from sqlalchemy     import Column, Integer, String, DateTime, Float, ForeignKey
+from app.database   import Base
 
 
 # definitions for tables of the database as classes

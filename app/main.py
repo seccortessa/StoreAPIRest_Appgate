@@ -1,11 +1,10 @@
-from fastapi import Depends, FastAPI
+from fastapi        import Depends, FastAPI
 from sqlalchemy.orm import Session
-from sqlalchemy import and_
-from datetime import datetime
-
-from . import models, schemas
-from app.database import engine, Base
-from app.routers import product_router
+from sqlalchemy     import and_
+from datetime       import datetime
+from app.database   import engine, Base
+from app.routers    import product_router
+from .              import models, schemas
 
 # creates all the tables object for database
 Base.metadata.create_all(bind=engine)
