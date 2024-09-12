@@ -32,7 +32,7 @@ Please make :
 
 ```
 python3 -m venv venv
-source env/bin/activate  # On Linux/MacOS
+source venv/bin/activate  # On Linux/MacOS
 ```
 2. Install dependencies
 ```
