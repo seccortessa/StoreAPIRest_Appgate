@@ -1,5 +1,8 @@
 from fastapi.testclient import TestClient
 from fastapi import status
+import os
+
+print(f"Ruta actual: {os.getcwd()}")
 from app.main import app
 
 import pytest
