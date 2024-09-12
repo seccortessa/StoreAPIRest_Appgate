@@ -23,8 +23,8 @@ Please make :
 ### Project clone
 
 
-    git clone https://github.com/usuario/store-api-rest.git
-    cd store-api-rest
+    git clone https://github.com/seccortessa/StoreAPIRest_Appgate.git
+    cd StoreAPIRest_Appgate
 
 ### Installation method 1 (Locally)
 
@@ -34,7 +34,8 @@ Please make :
 python3 -m venv venv
 source env/bin/activate  # On Linux/MacOS
 # or
-env\Scripts\activate  # On Windows
+python3 -m venv .venv
+.venv\Scripts\activate    # On Windows
 ```
 2. Install dependencies
 ```
