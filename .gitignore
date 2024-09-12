@@ -400,3 +400,7 @@ FodyWeavers.xsd
 # virtual environment
 
 venv/
+
+# database
+
+webstore.db
