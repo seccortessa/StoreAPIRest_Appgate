@@ -9,7 +9,11 @@ product_router = APIRouter()
 @product_router.get("/price/", response_model=schemas.PriceBase)
 
 async def read_price(application_date: datetime, product_id: int, brand_id: int, db: Session = Depends(get_db)):
-    price = crud.get_price(db, application_date, product_id, brand_id)
-    if not price:
-        raise HTTPException(status_code=404, detail="No price found for the given parameters")
-    return price
+    
+    if (crud.check_product_id(db, product_id)) or (crud.check_brand_id(db, brand_id)):
+        raise HTTPException(status_code=404, detail=f"Parameter(s) not found: {'product_id' if crud.check_product_id(db, product_id) else ''}{', ' if crud.check_product_id(db, product_id) and crud.check_brand_id(db, brand_id) else ''}{'brand_id' if crud.check_brand_id(db, brand_id) else ''}")
+        
+    if crud.check_dates(db, application_date):
+        raise HTTPException(status_code=404, detail="Entered date out of range")
+            
+    return (crud.get_price(db, application_date, product_id, brand_id))
