@@ -9,7 +9,7 @@ from data import DATABASE_NAME
 # url for the connection to the database
 SQLALCHEMY_DATABASE_URL = f"sqlite:///./{DATABASE_NAME}"
 
-print(SQLALCHEMY_DATABASE_URL)
+# print(SQLALCHEMY_DATABASE_URL)
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -20,9 +20,3 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()

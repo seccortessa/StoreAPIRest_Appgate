@@ -4,45 +4,24 @@ from sqlalchemy import and_
 from datetime import datetime
 
 from . import models, schemas
-from app.database import engine, Base, get_db
+from app.database import engine, Base
+from app.routers import product_router
 
-# Crear las tablas en la base de datos
+# creates all the tables object for database
 Base.metadata.create_all(bind=engine)
 
+# init the API 
 app = FastAPI()
 
-@app.get("/products/")
-async def read_products(db: Session = Depends(get_db)):
-    products = db.query(models.Product).all()
-    return products
+# including the route for get the price data
+app.include_router(product_router)
 
-# endpoint for get the price
-@app.get("/price/")
-# in this function we apply the logic in order to get the correct price applicable for the product and datetime entered
-async def get_price(application_date: datetime, product_id: int, brand_id: int, db: Session = Depends(get_db)):
-    prices = db.query(models.Price).filter(
-        and_(
-            models.Price.start_date <= application_date,
-            models.Price.end_date >= application_date,
-            models.Price.product_id == product_id,
-            models.Price.brand_id == brand_id            
-        )
-    ).order_by(models.Price.priority.desc()).first()
-    # takes the first result, since it is ordered by priority
-    
-    
-    # organize and present the desired results
-    if prices:
-    
-        return {
-            "product_id": prices.product_id,
-            "brand_id": prices.brand_id,
-            "price_list": prices.price_list,
-            "start_date": prices.start_date,
-            "end_date": prices.end_date,
-            "price_type": prices.price,
-            "currency": prices.curr
-        }
-    else:
-        return {"error": "No price found for the specified parameters"}
-    
+# simple root messsage
+@app.get('/')
+def root():
+    return {"status": "API is running!", "author": "Sebastian Camilo Cortes Salazar", "message": "This project is for JR II Software Engineer's technical test at Deoxys - Appgate"}
+
+# @app.get("/products/")
+# async def read_products(db: Session = Depends(get_db)):
+#     products = db.query(models.Product).all()
+#     return products
