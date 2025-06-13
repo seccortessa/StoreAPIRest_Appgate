@@ -14,7 +14,7 @@ my_project/
 │   ├── crud.py              # Database structuration and configuration
 │   ├── routes.py            # specific routes
     ├── data/
-        └── data.py          # data fot initialize the database 
+        └── data.py          # data for initialize the database 
 │
 ├── tests/
 │   ├── __init__.py          

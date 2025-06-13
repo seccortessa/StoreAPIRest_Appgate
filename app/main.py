@@ -18,7 +18,7 @@ app.include_router(product_router)
 # simple root messsage
 @app.get('/')
 def root():
-    return {"status": "API is running!", "author": "Sebastian Camilo Cortes Salazar", "message": "This project is for JR II Software Engineer's technical test at Deoxys - Appgate"}
+    return {"status": "API is running!", "author": "Sebastian Camilo Cortes Salazar", "message": "API Rest single project trough FastApI"}
 
 # @app.get("/products/")
 # async def read_products(db: Session = Depends(get_db)):
